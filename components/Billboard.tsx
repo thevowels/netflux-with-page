@@ -8,12 +8,14 @@ export default function Billboard() {
     const  {data,error, isLoading} = useBillboard();
     if(isLoading){
         return(
-            <div>Loading</div>
+            <div className=" relative h-[56.25vw] pt-30">
+                Loading
+            </div>
         )
     }
 
-    if(data){
-        return(
+    if (data) {
+        return (
             <div className=" relative h-[56.25vw] pt-30">
                 <video
                     className="
