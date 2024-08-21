@@ -25,7 +25,7 @@ const Auth = () =>{
                 email,
                 password,
                 redirect:true,
-                callbackUrl: '/'
+                callbackUrl: '/profiles'
             })
         }catch(error){
             console.log(error);
