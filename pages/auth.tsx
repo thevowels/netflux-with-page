@@ -28,7 +28,9 @@ const Auth = () =>{
                 callbackUrl: '/'
             }).then(res => {
                 console.log('error', res)
-                // res!.ok ? router.push("/") : alert(res!.error);
+                if(res?.ok){
+                    res!.ok ? router.push("/") : alert(res!.error);
+                }
             })
         }catch(error){
             console.log(error);
