@@ -23,7 +23,7 @@ export async function getServerSideProps(context: NextPageContext) {
 
 export default function Home() {
 
-    const {data:user, error, isLoading, mutate} = useCurrentUser();
+    const {data:user} = useCurrentUser();
   return (
     <>
         <Navbar/>
