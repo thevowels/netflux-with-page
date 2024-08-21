@@ -8,13 +8,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         return res.status(405).end();
     }
     try{
-        await serverAuth(req).then(
-            ({currentUser}) => {
-                return res.status(200).json(currentUser)
-            }
-        );
+        const {currentUser} = await serverAuth(req);
 
-        // return res.status(200).json(currentUser);
+        return res.status(200).json(currentUser);
     }catch(error){
         console.log('Error from current.ts', error);
         return res.status(400).end();
