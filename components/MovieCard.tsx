@@ -1,10 +1,10 @@
 import {Movie} from "@prisma/client";
 import {BsFillPlayFill} from "react-icons/bs";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default function MovieCard({movie}: {movie: Movie}) {
     return(
         <div className="group bg-zinc-900 col-span relative h-[12vw]">
-            {movie.title}
             <img
                 className="cursor-pointer object-cover transition duration shadow-xl rounded-md group-hover:opacity-90 sm:group-hover:opacity-0 delay-300 w-full h-[12vw]"
                 src={movie.thumbnailUrl} alt={movie.title}/>
@@ -52,7 +52,7 @@ export default function MovieCard({movie}: {movie: Movie}) {
                         rounded-b-md
 
                 ">
-                    <div className="flex flex-row items-center justify-between gap-3">
+                    <div className="flex flex-row items-center gap-3">
                         <div onClick={() =>{}}
                              className="cursor-pointer
                                         w-6
@@ -69,8 +69,9 @@ export default function MovieCard({movie}: {movie: Movie}) {
                              "
                         >
                             <BsFillPlayFill size={30}/>
-
                         </div>
+                        <FavoriteButton movieId={movie.id}/>
+
                     </div>
                     <p className="
                             text-green-400

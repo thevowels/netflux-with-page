@@ -13,6 +13,14 @@ export default function Billboard() {
             </div>
         )
     }
+    if(error){
+        return(
+            <div>
+
+                Error
+            </div>
+        )
+    }
 
     if (data) {
         return (
@@ -75,5 +83,11 @@ export default function Billboard() {
             </div>
         )
     }
+
+    return(
+        <div>
+            Default
+        </div>
+    )
 
 }
