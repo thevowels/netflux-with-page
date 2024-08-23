@@ -1,12 +1,18 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, {useCallback, useEffect, useState} from 'react'
 import useBillboard from "@/hooks/useBillboard";
 
 import {AiOutlineInfoCircle} from "react-icons/ai";
 import PlayButton from "@/components/PlayButton";
+import useInfoModal from "@/hooks/useInfoModal";
 
 export default function Billboard() {
     const  {data,error, isLoading} = useBillboard();
+    const {openModal} = useInfoModal();
+    const handleOpenModal = useCallback(() =>{
+        openModal(data?.id);
+    },[openModal, data?.id])
+
     if(isLoading){
         return(
             <div className=" relative h-[56.25vw] pt-30">
@@ -60,6 +66,7 @@ export default function Billboard() {
                     <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
                         <PlayButton movieId={data?.id}/>
                         <button
+                            onClick={handleOpenModal}
                             className="
                             bg-white
                             text-white
