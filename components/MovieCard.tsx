@@ -1,8 +1,10 @@
 import {Movie} from "@prisma/client";
 import {BsFillPlayFill} from "react-icons/bs";
 import FavoriteButton from "@/components/FavoriteButton";
+import {useRouter} from "next/router";
 
 export default function MovieCard({movie}: {movie: Movie}) {
+    const router = useRouter();
     return(
         <div className="group bg-zinc-900 col-span relative h-[12vw]">
             <img
@@ -53,7 +55,7 @@ export default function MovieCard({movie}: {movie: Movie}) {
 
                 ">
                     <div className="flex flex-row items-center gap-3">
-                        <div onClick={() =>{}}
+                        <div onClick={() =>{router.push(`/watch/${movie?.id}`)}}
                              className="cursor-pointer
                                         w-6
                                         h-6
